@@ -7,6 +7,7 @@ const bodyparser = require('body-parser');
 
 // getting modules
 const Users = require('./schemas/usersSchema');
+const Companies = require('./schemas/companiesSchema');
 
 
 const app = express();
@@ -35,5 +36,3 @@ db.once('open', () => {
         console.log(`server is UP and RUNNING`)
     })
 });
-
-
