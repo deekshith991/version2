@@ -1,7 +1,12 @@
+
+// getting dependencies
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
+
+// getting modules
+const Users = require('./schemas/usersSchema');
 
 
 const app = express();
@@ -30,4 +35,5 @@ db.once('open', () => {
         console.log(`server is UP and RUNNING`)
     })
 });
+
 
