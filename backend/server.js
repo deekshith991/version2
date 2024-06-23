@@ -5,7 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 
-// getting modules
+// getting SCHEMA modules
 const Users = require('./schemas/usersSchema');
 const Companies = require('./schemas/companiesSchema');
 
@@ -46,92 +46,11 @@ app.get('/test', (req, res) => {
     res.status(200).json({ message: "api is RUNNING" });
 });
 
-// register a user in db
-app.post(`/api/users`, async (req, res) => {
 
-    const { name, email, password, phone, qualification, address, pincode } = req.body;
-
-    let user = new Users({
-        name,
-        email,
-        password,
-        phone,
-        qualification,
-        address,
-        pincode
-    });
-    const result = await user
-        .save()
-        .then(response => console.log(response))
-        .catch(error => console.log(error));
-    res.status(200).send(result);
-
-});
-
-app.get(`/api/users`, async (req, res) => {
-    try {
-        const data = await Users.find({});
-        res.status(200).json(data);
-    } catch (error) {
-        console.error(" Error in retriving data ", error);
-    }
-
-});
-
-app.get(`/api/users/:id`, (req, res) => {
-    const id = req.params.id;
-    Users.findById(id)
-        .then(doc => {
-            console.log(doc);
-            res.status(200).json(doc);
-        })
-        .catch(err => {
-            console.log("error get document by id ", err);
-            res.status(500).json({ Message: `NO USER DOC with ID ${id}`, ERROR: err });
-        });
-});
+// iporting routes
+const userRoutes = require('./api/routes/users');
+app.use('/api/users', userRoutes);
 
 
-
-
-app.post(`/api/companies`, async (req, res) => {
-    const { companyName, email, password, branch, address, pincode } = req.body;
-
-    let company = new Companies({
-        companyName,
-        email,
-        password,
-        branch,
-        address,
-        pincode
-    });
-    const result = await company
-        .save()
-        .then(response => console.log(response))
-        .catch(error => console.log(error));
-    res.status(200).send(result);
-
-});
-
-app.get(`/api/companies`, async (req, res) => {
-    try {
-        const data = await Companies.find({});
-        res.status(200).json(data);
-    } catch (error) {
-        console.error(" Error in retriving data ", error);
-    }
-
-});
-
-app.get(`/api/companies/:id`, (req, res) => {
-    const id = req.params.id;
-    Companies.findById(id)
-        .then(doc => {
-            console.log(doc);
-            res.status(200).json(doc);
-        })
-        .catch(err => {
-            console.log("error get document by id ", err);
-            res.status(500).json({ Message: `NO company DOC with ID ${id}`, ERROR: err });
-        });
-});
+const companiesRoutes = require('./api/routes/companies');
+app.use('/api/companies', companiesRoutes);
