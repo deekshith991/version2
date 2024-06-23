@@ -78,7 +78,18 @@ app.get(`/api/users`, async (req, res) => {
 
 });
 
-app.get(`/api/users/:id`);
+app.get(`/api/users/:id`, (req, res) => {
+    const id = req.params.id;
+    Users.findById(id)
+        .then(doc => {
+            console.log(doc);
+            res.status(200).json(doc);
+        })
+        .catch(err => {
+            console.log("error get document by id ", err);
+            res.status(500).json({ Message: `NO USER DOC with ID ${id}`, ERROR: err });
+        });
+});
 
 
 
@@ -112,4 +123,15 @@ app.get(`/api/companies`, async (req, res) => {
 
 });
 
-app.get(`/api/companies/:id`)
+app.get(`/api/companies/:id`, (req, res) => {
+    const id = req.params.id;
+    Companies.findById(id)
+        .then(doc => {
+            console.log(doc);
+            res.status(200).json(doc);
+        })
+        .catch(err => {
+            console.log("error get document by id ", err);
+            res.status(500).json({ Message: `NO company DOC with ID ${id}`, ERROR: err });
+        });
+});
