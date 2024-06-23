@@ -1,20 +1,21 @@
-
 // getting dependencies
+require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 
+/*
 // getting SCHEMA modules
 const Users = require('./schemas/usersSchema');
 const Companies = require('./schemas/companiesSchema');
+*/
 
 
 const app = express();
-const PORT = 3333;
-
-const DB_NAME = 'testing_db';
-const mongo_URI = 'mongodb://localhost:27017';
+const port = process.env.PORT || 3334;
+const dbName = process.env.DB_NAME || 'testing_db';
+const mongo_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
 
 
 app.use(cors());
@@ -22,7 +23,8 @@ app.use(express.json());
 
 
 // connect to db 
-mongoose.connect(`${mongo_URI}/${DB_NAME}`);
+console.log(" [#] trying to connect to DB ")
+mongoose.connect(`${mongo_URI}/${dbName}`);
 
 const db = mongoose.connection;
 
@@ -32,8 +34,8 @@ db.on('error', (error) => {
 });
 db.once('open', () => {
     console.log('connected to MONGO DB\n');
-    app.listen(PORT, () => {
-        console.log(`server is UP and RUNNING`)
+    app.listen(port, () => {
+        console.log(`server is UP and RUNNING on ${port}`)
     })
 });
 
