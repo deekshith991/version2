@@ -16,7 +16,7 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        setAuthData({ email: userDATA.email });
+        setAuthData({ email: userDATA.email, isLoggedIn: true });
 
     }
 
