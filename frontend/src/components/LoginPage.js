@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from './AuthContext';
+import './css/loginPage.css'
 
 const LoginPage = () => {
     const { authData, setAuthData } = useAuth();
@@ -21,18 +22,27 @@ const LoginPage = () => {
     }
 
     return (
-        <div>
+        <div id='view'>
             <h1>Login Page</h1>
 
-            <form onSubmit={handleSubmit}>
-                <label>Email: </label>
-                <input type='email' name='email' value={userDATA.email} onChange={handleChange} />
+            <div id='loginCard'>
+                <form onSubmit={handleSubmit}>
 
-                <label>Password: </label>
-                <input type='password' name='password' value={userDATA.password} onChange={handleChange} />
+                    <div className='inputBox'>
+                        <label>Email: </label>
+                        <input type='email' name='email' value={userDATA.email} onChange={handleChange} />
+                    </div>
 
-                <button type='submit'>Login</button>
-            </form>
+                    <div className='inputBox'>
+                        <label>Password: </label>
+                        <input type='password' name='password' value={userDATA.password} onChange={handleChange} />
+                    </div>
+
+                    <div>
+                        <button type='submit'>Login</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

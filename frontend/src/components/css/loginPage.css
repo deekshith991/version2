@@ -1,0 +1,70 @@
+:root {
+    --text: #010b0e;
+    --background: #e3e6e7;
+    --primary: #20c0f3;
+    --secondary: #f87db6;
+    --accent: #f57649;
+
+}
+
+#view {
+
+    background-color: var(--background);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    width: 100vw;
+    min-height: 95vh;
+}
+
+#loginCard {
+    background-color: var(--primary);
+
+    text-align: left;
+    border-radius: 15px;
+    max-width: 300px;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.inputBox {
+    margin-bottom: 15px;
+}
+
+.inputBox label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.inputBox input[type="email"],
+.inputBox input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: var(--secondary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #da3bf0;
+}
