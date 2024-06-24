@@ -20,10 +20,19 @@ const RegistrationForm = () => {
         setUser({ ...user, [name]: value });
     }
 
-    const handleSubmit = (e) => {
+    const submitUser = () => {
+        console.log('submitting User');
+    }
+
+    function submitCompany() {
+        console.log('submitting company');
+    }
+
+    function handleSubmit(e) {
         e.preventDefault();
-        // Handle form submission logic here (e.g., send data to server)
         console.log('Submitted user:', user);
+
+        const decision = (role === 'jobSeeker') ? submitUser() : submitCompany()
     }
 
     const jobSeekerFields = (
