@@ -13,7 +13,7 @@ function App() {
       {/* <h1>hello</h1> */}
       {/* <h2>check</h2> */}
       <LoginPage />
-      {/* <ProfilePage /> */}
+      <ProfilePage />
     </div>
   );
 }

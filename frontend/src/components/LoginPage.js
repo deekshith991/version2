@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import './css/loginPage.css'
 
 const LoginPage = () => {
     const { authData, setAuthData } = useAuth();
-    const [userDATA, setUserDATA] = useState({
+    const [userDATA, setUserDATA] = React.useState({
         email: '',
         password: ''
-    });
+    }) || {};
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,26 +23,27 @@ const LoginPage = () => {
     }
 
     return (
-        <div id='view'>
-            <h1>Login Page</h1>
-
-            <div id='loginCard'>
-                <form onSubmit={handleSubmit}>
-
-                    <div className='inputBox'>
-                        <label>Email: </label>
-                        <input type='email' name='email' value={userDATA.email} onChange={handleChange} />
+        <div className='LOGINPAGE'>
+            <div className="container">
+                <h1>Find the most
+                    <br />Exciting Jobs
+                </h1>
+                <div className="d-flex flex-row">
+                    <div className="login-box">
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="email">Username</label>
+                                <input type="text" className="form-control" id="email" placeholder="Enter email" name="email" value={userDATA.email} onChange={handleChange} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="password">Password</label>
+                                <input type="password" className="form-control" id="password" placeholder="Enter password" name="password" value={userDATA.password} onChange={handleChange} />
+                            </div>
+                            <button className="btn btn-primary btn-block" id="login-btn" type="submit">Login</button>
+                        </form>
+                        {/* <p className="text-center mt-3" id="register-link">Don't have an account? <Link >Register</Link></p> */}
                     </div>
-
-                    <div className='inputBox'>
-                        <label>Password: </label>
-                        <input type='password' name='password' value={userDATA.password} onChange={handleChange} />
-                    </div>
-
-                    <div>
-                        <button type='submit'>Login</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     );

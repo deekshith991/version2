@@ -1,70 +1,86 @@
-:root {
-    --text: #010b0e;
-    --background: #e3e6e7;
-    --primary: #20c0f3;
-    --secondary: #f87db6;
-    --accent: #f57649;
-
-}
-
-#view {
-
-    background-color: var(--background);
-    text-align: center;
-
+.LOGINPAGE,
+.ISSUEJOB,
+.REGISTER {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 10px;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-
-    padding: 20px;
-    width: 100vw;
-    min-height: 95vh;
-}
-
-#loginCard {
-    background-color: var(--primary);
-
-    text-align: left;
-    border-radius: 15px;
-    max-width: 300px;
-    padding: 30px;
-
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    align-content: center;
-    justify-items: center;
 }
 
-.inputBox {
-    margin-bottom: 15px;
-}
-
-.inputBox label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.inputBox input[type="email"],
-.inputBox input[type="password"] {
+.page-container {
     width: 100%;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-button[type="submit"] {
-    background-color: var(--secondary);
+h1 {
+    text-align: center;
+    color: rgb(13, 3, 41);
+    margin: 5px;
+    font-weight: bold;
+    text-decoration: solid;
+    margin-bottom: 30px;
+}
+
+.login-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 200px;
+}
+
+.login-box h2 {
+    margin-top: 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+select[id="workType"],
+select[id="account"],
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[id="issue-btn"],
+button[id="register-btn"],
+button[id="login-btn"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    font-weight: 600;
 }
 
-button[type="submit"]:hover {
-    background-color: #da3bf0;
+button[id="issue-btn"],
+button[id="register-btn"]:hover,
+button[id="login-btn"]:hover {
+    background-color: #45a049;
+}
+
+#register-link {
+    text-align: center;
 }
