@@ -1,4 +1,5 @@
 import './App.css';
+import LoginPage from './components/LoginPage';
 import { test } from './components/services';
 
 
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <h1>hello</h1>
       <h2>check</h2>
+      <LoginPage />
     </div>
   );
 }
