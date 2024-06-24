@@ -14,3 +14,8 @@ export const test = async () => {
 };
 
 // for jwt tokens
+// Storing data in localStorage
+localStorage.setItem('myData', JSON.stringify(data));
+
+// Retrieving data from localStorage
+const storedData = JSON.parse(localStorage.getItem('myData'));
