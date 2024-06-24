@@ -1,8 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from './AuthContext'; // Correct import from UserProvider
+import React, { useState } from 'react';
 
 const LoginPage = () => {
-    const { setUserInfo } = useContext(AuthContext) || {}; // Using useContext to access the context
     const [userDATA, setUserDATA] = useState({
         email: '',
         password: ''
@@ -13,19 +11,9 @@ const LoginPage = () => {
         setUserDATA({ ...userDATA, [name]: value });
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        try {
-            // Assuming login function returns userInfo upon successful login
-            const userInfo = await setUserInfo.email(userDATA.email)
-
-            // Handle setting user information or redirection upon successful login
-            console.log('Logged in user:', userInfo);
-        } catch (error) {
-            console.error('Login error:', error);
-            // Handle login error (e.g., display error message)
-        }
     }
 
     return (
