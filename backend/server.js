@@ -1,5 +1,5 @@
 // getting dependencies
-// require('dotenv').config();
+
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -13,9 +13,9 @@ const Companies = require('./schemas/companiesSchema');
 
 
 const app = express();
-const port = process.env.PORT || 3333;
-const dbName = process.env.DB_NAME || 'testing_db';
-const mongo_URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
+const port = 3333;
+const dbName = 'testing_db';
+const mongo_URI = 'mongodb://localhost:27017';
 
 
 app.use(cors());
