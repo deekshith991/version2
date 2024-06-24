@@ -56,7 +56,7 @@ router.post(`/`, async (req, res) => {
                 console.log(response.name, " is Registered");
                 res.status(200).json({ "Message": "Success", "Doc": response });
             })
-            .catch(error => console.log(error));
+            .catch(error => console.log("failed", error));
     } catch (error) {
         console.error(error, "\n Error saving DATA ");
     }
