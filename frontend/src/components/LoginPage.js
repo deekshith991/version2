@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import './css/loginPage.css'
 import { LOGIN } from './services';
 
 const LoginPage = () => {
+
+    const navigate = useNavigate();
     const { authData, setAuthData } = useAuth();
     const [userDATA, setUserDATA] = React.useState({
         email: '',
@@ -24,7 +27,10 @@ const LoginPage = () => {
             password: userDATA.password
         }
         const status = await LOGIN(data);
-        setAuthData({ email: userDATA.email, isLoggedIn: true });
+
+        // setting the base values in local storage a small trick to set up sessionStorage
+        setAuthData({ role: status.role, email: status.email, isLoggedIn: true, name: (status.name || status.companyName), Uid: status._id });
+        navigate('/profile');
 
     }
 

@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
 
+    role: {
+        type: String,
+        default: "Job Seeker",
+    },
     name: {
         type: String,
     },

@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import { useAuth } from './AuthContext';
 
 const api_URL = 'http://localhost:3333';
 
@@ -20,16 +21,44 @@ export const test = async () => {
 // // Retrieving data from localStorage
 // const storedData = JSON.parse(localStorage.getItem('myData'));
 
-export const LOGIN = async (data) => {
+
+
+
+
+// export const LLOGIN = async (user) => {
+
+//     const { setAuthData } = useAuth;
+
+//     try {
+//         const res = await axios.post(`${api_URL}/api/Auth`, user);
+//         console.log('Login successful:', res.data);
+//         const entry = (res.data);
+//         console.log(entry.id);
+//         setAuthData({ entry });
+//         return res.data;
+
+//     } catch (error) {
+//         if (error && error.response.status === 401) {
+//             console.error('Unauthorized: Invalid credentials');
+//             // Handle unauthorized error, e.g., show error message to user
+//         } else {
+//             console.error('Error occurred while logging in:', error.message);
+//         }
+//         throw error;
+//     }
+// };
+
+export const LOGIN = async (user) => {
     try {
-        const response = await axios.post(`${api_URL}/api/Auth`, data);
-        console.log('Login successful:', response.data);
-        return response.data;
+        const res = await axios.post(`${api_URL}/api/Auth`, user);
+        console.log('Response:', res);
+        return res.data;
 
     } catch (error) {
-        if (error.response.status === 401) {
+        console.error('Error:', error); // Log the error for debugging
+        if (error.response && error.response.status === 401) {
             console.error('Unauthorized: Invalid credentials');
-            // Handle unauthorized error, e.g., show error message to user
+
         } else {
             console.error('Error occurred while logging in:', error.message);
         }

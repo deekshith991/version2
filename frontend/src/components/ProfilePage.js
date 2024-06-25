@@ -8,6 +8,7 @@ const ProfilePage = () => {
     return (
         <div>
             <h2>User Profile</h2>
+            <p>id: {authData.Uid}</p>
             <p>Email: {authData.email}</p>
             <p>Name: {authData.name}</p>
             <p>Role: {authData.role}</p>

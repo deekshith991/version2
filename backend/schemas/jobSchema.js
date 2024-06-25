@@ -14,6 +14,10 @@ const Applications = new mongoose.Schema({
 
 const JobSchema = new mongoose.Schema({
 
+    role: {
+        type: String,
+        default: "Employer",
+    },
     company_Name: {
         type: String,
     },

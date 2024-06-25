@@ -11,12 +11,14 @@ router.post('/', async (req, res) => {
 
         const user = await Users.findOne({ email, password });
         if (user) {
-            return res.status(200).json({ message: 'success', user });
+            const data = user;
+            return res.status(200).json(data);
         }
 
         const company = await Companies.findOne({ email, password });
         if (company) {
-            return res.status(200).json({ message: 'Login successful for company', company });
+            const data = company
+            return res.status(200).json(data);
         }
         return res.status(401).json({ message: 'Invalid credentials' });
 
