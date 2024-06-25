@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
 
         const user = await Users.findOne({ email, password });
         if (user) {
-            return res.status(200).json({ message: 'Login successful', user });
+            return res.status(200).json({ message: 'success', user });
         }
 
         const company = await Companies.findOne({ email, password });
