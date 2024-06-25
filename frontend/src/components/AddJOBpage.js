@@ -39,7 +39,7 @@ const AddJOB = () => {
     return (
         <div className='ISSUEJOB'>
             <div className="container">
-                <h1>Register Now</h1>
+                <h1>Register a JOB Now</h1>
                 <div className="d-flex flex-row">
                     <div className="login-box">
                         <form onSubmit={handleRegister}>

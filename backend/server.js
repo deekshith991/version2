@@ -56,3 +56,6 @@ app.use('/api/users', userRoutes);
 
 const companiesRoutes = require('./api/routes/companies');
 app.use('/api/companies', companiesRoutes);
+
+const jobsRoutes = require('./api/routes/jobs');
+app.use('/api/jobs', jobsRoutes);
