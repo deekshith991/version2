@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './css/loginPage.css';
 
 const RegistrationForm = () => {
@@ -123,6 +124,8 @@ const RegistrationForm = () => {
 
                             <button className="btn btn-primary btn-block" id="register-btn" type="submit">Register</button>
                         </form>
+                        <p className="text-center mt-3" id="register-link">have an account? <Link to='/login' >login</Link></p>
+
                     </div>
                 </div>
             </div>

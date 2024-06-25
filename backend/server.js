@@ -48,8 +48,10 @@ app.get('/test', (req, res) => {
     res.status(200).json({ message: "api is RUNNING" });
 });
 
+const loginRoute = require('./api/routes/Auth');
+// importing routes
+app.use('/api/Auth', loginRoute);
 
-// iporting routes
 const userRoutes = require('./api/routes/users');
 app.use('/api/users', userRoutes);
 

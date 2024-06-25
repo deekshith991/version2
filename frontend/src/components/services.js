@@ -19,3 +19,20 @@ export const test = async () => {
 
 // // Retrieving data from localStorage
 // const storedData = JSON.parse(localStorage.getItem('myData'));
+
+export const LOGIN = async (data) => {
+    try {
+        const response = await axios.post(`${api_URL}/api/Auth`, data);
+        console.log('Login successful:', response.data);
+        return response.data;
+
+    } catch (error) {
+        if (error.response.status === 401) {
+            console.error('Unauthorized: Invalid credentials');
+            // Handle unauthorized error, e.g., show error message to user
+        } else {
+            console.error('Error occurred while logging in:', error.message);
+        }
+        throw error;
+    }
+};

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import './css/loginPage.css'
+import { LOGIN } from './services';
 
 const LoginPage = () => {
     const { authData, setAuthData } = useAuth();
@@ -15,9 +16,14 @@ const LoginPage = () => {
         setUserDATA({ ...userDATA, [name]: value });
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log('logging in');
+        const data = {
+            email: userDATA.email,
+            password: userDATA.password
+        }
+        const status = await LOGIN(data);
         setAuthData({ email: userDATA.email, isLoggedIn: true });
 
     }
@@ -41,7 +47,7 @@ const LoginPage = () => {
                             </div>
                             <button className="btn btn-primary btn-block" id="login-btn" type="submit">Login</button>
                         </form>
-                        {/* <p className="text-center mt-3" id="register-link">Don't have an account? <Link >Register</Link></p> */}
+                        <p className="text-center mt-3" id="register-link">Don't have an account? <Link to='/register' >Register</Link></p>
                     </div>
                 </div>
             </div>
