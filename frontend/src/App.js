@@ -3,8 +3,9 @@ import { useAuth } from './components/AuthContext';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import AddJOB from './components/AddJOBpage';
 import LoginPage from './components/LoginPage';
-import ProfilePage from './components/ProfilePage';
+import SessionPage from './components/SessionPage.js';
 import RegistrationForm from './components/RegstrationFormPage';
+import Homepage from './components/HomePage.js'
 
 function App() {
   const { authData } = useAuth();
@@ -18,7 +19,7 @@ function App() {
 
           {authData.isLoggedIn ? (
             <>
-              <Route path='/profile' element={<ProfilePage />} />
+              <Route path='/session' element={<SessionPage />} />
               <Route path='/addjob' element={<AddJOB />} />
               <Route path='/' element={<Navigate to='/profile' replace />} />
             </>

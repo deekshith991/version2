@@ -27,10 +27,9 @@ const LoginPage = () => {
             password: userDATA.password
         }
         const status = await LOGIN(data);
-
         // setting the base values in local storage a small trick to set up sessionStorage
         setAuthData({ role: status.role, email: status.email, isLoggedIn: true, name: (status.name || status.companyName), Uid: status._id });
-        navigate('/profile');
+        navigate('/session');
 
     }
 
