@@ -1,8 +1,21 @@
 
+import React from 'react';
+import Header from './Header';
+import './css/companyprofile.css';
+import { useAuth } from './AuthContext';
+
+
 
 const JobGallery = () => {
+    const { authData, userInformation } = useAuth();
+
     return (
-        <h1>Jobs</h1>
+        <div className="container">
+            <Header />
+            <div className="main">
+                <h1> job Gallery</h1>
+            </div>
+        </div>
     )
 };
 

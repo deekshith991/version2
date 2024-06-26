@@ -33,7 +33,7 @@ const LoginPage = () => {
 
         // setting the base values in local storage a small trick to set up sessionStorage
         setAuthData({ role: status.role, email: status.email, isLoggedIn: true, name: (status.name || status.companyName), Uid: status._id });
-        { authData.role === "jobSeeker" ? navigate('/jobgallery') : navigate('/companyprofile') }
+        { status.role === "jobSeeker" ? navigate('/jobgallery') : navigate('/companyprofile') }
 
     }
 
