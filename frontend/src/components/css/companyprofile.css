@@ -1,4 +1,5 @@
 .container {
+    height: 100%;
     /* padding-top: 70px; */
     /* Adjust to match the height of your fixed header */
 }

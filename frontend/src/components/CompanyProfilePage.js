@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import './css/companyprofile.css';
 import AddJOB from './AddJOBpage';
+import ProfieBlock from './ProfileBlock';
 
 const CompanyProfile = () => {
     return (
@@ -10,7 +11,7 @@ const CompanyProfile = () => {
             <div className="main">
                 <div className="leftHalf">
                     <h2>Profile Data</h2>
-                    {/* Add your profile data content here */}
+                    <ProfieBlock />
                 </div>
                 <div className="rightHalf">
                     <AddJOB />
