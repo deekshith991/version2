@@ -1,5 +1,5 @@
 
-import './css/loginPage.css';
+import './css/addjob.css';
 import { useState } from 'react';
 
 const AddJOB = () => {
@@ -39,12 +39,10 @@ const AddJOB = () => {
     return (
         <div className='ISSUEJOB'>
             <div className="container">
-                <h1>Register a JOB Now</h1>
+                <h2> ISSUE A JOB </h2>
                 <div className="d-flex flex-row">
                     <div className="login-box">
                         <form onSubmit={handleRegister}>
-
-
 
                             <div className="form-group">
                                 <label htmlFor="company">Company Name</label>

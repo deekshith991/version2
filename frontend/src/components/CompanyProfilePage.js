@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from './Header'; // Import the Header component
-import './css/companyprofile.css'; // Import the CSS file for styling
+import Header from './Header';
+import './css/companyprofile.css';
+import AddJOB from './AddJOBpage';
 
 const CompanyProfile = () => {
     return (
@@ -12,8 +13,7 @@ const CompanyProfile = () => {
                     {/* Add your profile data content here */}
                 </div>
                 <div className="rightHalf">
-                    <h2>Add Job</h2>
-                    {/* Add your add job form or content here */}
+                    <AddJOB />
                 </div>
             </div>
         </div>
