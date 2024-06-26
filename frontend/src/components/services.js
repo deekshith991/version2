@@ -50,3 +50,14 @@ export const REGISTERFORM = async (user) => {
         console.error("ERROR:", error);
     }
 };
+
+export const ADDJOB = async (jobdata) => {
+
+    try {
+        const res = await axios.post(`${api_URL}/api/jobs`, jobdata);
+        alert('success');
+        return res.data;
+    } catch (error) {
+        console.error("ERROR :", error);
+    }
+}

@@ -1,10 +1,13 @@
 
 import './css/addjob.css';
 import { useState } from 'react';
+import { ADDJOB } from './services';
+import { useAuth } from './AuthContext';
 
 const AddJOB = () => {
 
     const [regData, setRegData] = useState({
+        employer: "",
         company: "",
         position: "",
         workType: "",
@@ -19,9 +22,11 @@ const AddJOB = () => {
         setRegData({ ...regData, [name]: value });
     }
 
+    const { authData } = useAuth();
     const handleRegister = (e) => {
         e.preventDefault();
         const formData = {
+            employer: authData.Uid,
             company: regData.company,
             position: regData.position,
             workType: regData.workType,
@@ -32,7 +37,7 @@ const AddJOB = () => {
 
         console.log('submiitin job', formData);
 
-
+        ADDJOB(formData);
     }
 
 

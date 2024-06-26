@@ -33,11 +33,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { employer, company_Name, position, workType, workLocation, salary, email } = req.body;
+    const { employer, company, position, workType, workLocation, salary, email } = req.body;
 
     let job = new Jobs({
         employer,
-        company_Name,
+        company,
         position,
         workType,
         workLocation,
@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
         await job
             .save()
             .then(response => {
-                console.log(response.company_Name, " is Registered");
+                console.log(response.company, " is Registered");
                 res.status(200).json({ "Message": "success", "Doc": response })
             })
             .catch(error => console.log(error));

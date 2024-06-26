@@ -24,7 +24,7 @@ const JobSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    company_Name: {
+    company: {
         type: String,
     },
     position: {
