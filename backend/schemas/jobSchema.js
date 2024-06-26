@@ -16,13 +16,13 @@ const applicationsSchema = new mongoose.Schema({
 const Applications = mongoose.model('Applications', applicationsSchema);
 
 const JobSchema = new mongoose.Schema({
+    // id: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'user',
+    // },
     employer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    },
-    role: {
-        type: String,
-        default: "Employer",
     },
     company_Name: {
         type: String,

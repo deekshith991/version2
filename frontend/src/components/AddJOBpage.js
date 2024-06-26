@@ -70,7 +70,7 @@ const AddJOB = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="salary ">salary </label>
-                                <input type="number" className="form-control" id="salary" placeholder="Enter salary"
+                                <input type="number" className="form-control" id="salary" placeholder="Enter salary per Annum"
                                     name="salary" value={regData.salary} onChange={handleChange} />
                             </div>
                             <div className="form-group">

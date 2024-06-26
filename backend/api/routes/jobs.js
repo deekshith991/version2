@@ -33,9 +33,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { company_Name, position, workType, workLocation, salary, email } = req.body;
+    const { employer, company_Name, position, workType, workLocation, salary, email } = req.body;
 
     let job = new Jobs({
+        employer,
         company_Name,
         position,
         workType,
