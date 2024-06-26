@@ -19,8 +19,12 @@ function App() {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegistrationForm />} />
 
+          {/* temporary access */}
+          {/* <Route path='/companyprofile' element={<CompanyProfile />} /> */}
+
           {authData.isLoggedIn ? (
             <>
+              <Route path='/home' element={<Homepage />} />
               <Route path='/jobgallery' element={<JobGallery />} />
               <Route path='/companyprofile' element={<CompanyProfile />} />
               <Route path='/session' element={<SessionPage />} />

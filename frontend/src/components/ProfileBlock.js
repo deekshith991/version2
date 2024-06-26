@@ -2,15 +2,15 @@ import './css/profileblock.css';
 import { useAuth } from './AuthContext';
 
 const ProfieBlock = () => {
-    const { authData } = useAuth();
+    const { authData, userInformation } = useAuth();
 
     return (
         <div id='profileblock'>
-            <h4>Id : {authData.Uid}</h4>
-            <h3>Company Name: {authData.name} </h3>
-            <h3>Branch : xxxx</h3>
-            <h3>Email : {authData.email}</h3>
-            <h3> Jobs Issued: 0 </h3>
+            <h4>Id : {userInformation._id}</h4>
+            <h3>Company Name: {userInformation.companyName}</h3>
+            <h3>Branch : {userInformation.branch} </h3>
+            <h3>Email : {userInformation.email}</h3>
+            <h3> Jobs Issued:( {userInformation.jobsIssued.length}) </h3>
         </div>
     )
 }

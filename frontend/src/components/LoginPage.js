@@ -8,7 +8,7 @@ import { LOGIN } from './services';
 const LoginPage = () => {
 
     const navigate = useNavigate();
-    const { authData, setAuthData } = useAuth();
+    const { authData, setAuthData, userInformation, setUserInformation } = useAuth();
     const [userDATA, setUserDATA] = React.useState({
         email: '',
         password: ''
@@ -27,6 +27,10 @@ const LoginPage = () => {
             password: userDATA.password
         }
         const status = await LOGIN(data);
+
+        setUserInformation(status);
+
+
         // setting the base values in local storage a small trick to set up sessionStorage
         setAuthData({ role: status.role, email: status.email, isLoggedIn: true, name: (status.name || status.companyName), Uid: status._id });
         { authData.role === "jobSeeker" ? navigate('/jobgallery') : navigate('/companyprofile') }

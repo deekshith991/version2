@@ -4,6 +4,7 @@ import React, { createContext, useState, useContext } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const [userInformation, setUserInformation] = useState('');
     const [authData, setAuthData] = useState({
         role: '',
         Uid: '',
@@ -14,7 +15,7 @@ export const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ authData, setAuthData }}>
+        <AuthContext.Provider value={{ authData, setAuthData, userInformation, setUserInformation }}>
             {children}
         </AuthContext.Provider>
     );
