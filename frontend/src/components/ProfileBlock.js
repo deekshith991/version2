@@ -6,6 +6,7 @@ const ProfieBlock = () => {
 
     return (
         <div id='profileblock'>
+            <h4>Id : {authData.Uid}</h4>
             <h3>Company Name: {authData.name} </h3>
             <h3>Branch : xxxx</h3>
             <h3>Email : {authData.email}</h3>

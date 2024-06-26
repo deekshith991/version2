@@ -41,7 +41,7 @@ const AddJOB = () => {
             <div className="container">
                 <h2> ISSUE A JOB </h2>
                 <div className="d-flex flex-row">
-                    <div className="login-box">
+                    <div className="job-box">
                         <form onSubmit={handleRegister}>
 
                             <div className="form-group">
