@@ -6,6 +6,8 @@ import LoginPage from './components/LoginPage';
 import SessionPage from './components/SessionPage.js';
 import RegistrationForm from './components/RegstrationFormPage';
 import Homepage from './components/HomePage.js'
+import JobGallery from './components/JobGalleryPage.js';
+import CompanyProfile from './components/CompanyProfilePage.js';
 
 function App() {
   const { authData } = useAuth();
@@ -19,6 +21,8 @@ function App() {
 
           {authData.isLoggedIn ? (
             <>
+              <Route path='/jobgallery' element={<JobGallery />} />
+              <Route path='/companyprofile' element={<CompanyProfile />} />
               <Route path='/session' element={<SessionPage />} />
               <Route path='/addjob' element={<AddJOB />} />
               <Route path='/' element={<Navigate to='/profile' replace />} />
