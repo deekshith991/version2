@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const Jobs = require('../../schemas/jobSchema');
+const Users = require('../../schemas/usersSchema');
 
 router.get('/alfa', async (req, res) => {
     try {
@@ -56,16 +57,20 @@ router.post('/', async (req, res) => {
     });
 
     try {
-        await job
+        const jobdata = await job
             .save()
             .then(response => {
                 console.log(response.company, " is Registered");
                 res.status(200).json({ "Message": "success", "Doc": response })
             })
             .catch(error => console.log(error));
+        const user = await Users.findById(employer);
+        user.jobsIssued.push(jobdata._id);
+        await user.save();
     } catch (error) {
         console.error(error, "\n Error saving DATA ");
     }
+
 
 });
 
