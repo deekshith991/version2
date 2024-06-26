@@ -61,3 +61,17 @@ export const ADDJOB = async (jobdata) => {
         console.error("ERROR :", error);
     }
 }
+
+export const GETJOBS = async () => {
+
+    try {
+        return await axios.get(`${api_URL}/api/jobs`)
+            .then(response => console.log(response))
+            .catch(error => {
+                console.log("unable to connect to server\nError msg\n", error);
+                // alert('server is down');
+            })
+    } catch (error) {
+        console.error(error);
+    }
+}
