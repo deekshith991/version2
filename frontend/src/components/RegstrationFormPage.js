@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './css/loginPage.css';
+import { REGISTERFORM } from './services';
 
 const RegistrationForm = () => {
-    const [role, setRole] = useState('jobSeeker');
+    const navigate = useNavigate();
+    const [roles, setRole] = useState('jobSeeker');
     const [user, setUser] = useState({
+        role: roles,
         name: '',
         email: '',
         password: '',
@@ -21,23 +24,30 @@ const RegistrationForm = () => {
         setUser({ ...user, [name]: value });
     }
 
-    const submitUser = () => {
-        console.log('submitting User');
-    }
+    // const submitUser = () => {
+    //     console.log('submitting User');
+    // }
 
-    function submitCompany() {
-        console.log('submitting company');
-    }
+    // function submitCompany() {
+    //     console.log('submitting company');
+    // }
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log('Submitted user:', user);
 
-        const decision = (role === 'jobSeeker') ? submitUser() : submitCompany()
+        if (roles === 'Employer') {
+            setRole('Employer');
+            user.role = "Employer";
+        }
+        console.log('Submitted user:', user);
+        REGISTERFORM(user);
+        navigate('/login');
+
     }
 
     const jobSeekerFields = (
         <>
+
             <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <input type="text" className="form-control" id="name" placeholder="First Name & Last Name" name="name" value={user.name} onChange={handleChange} />
@@ -114,13 +124,13 @@ const RegistrationForm = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="role">Select Role:</label>
-                                <select className="form-control" id="role" value={role} onChange={handleRoleChange}>
+                                <select className="form-control" id="role" value={roles} onChange={handleRoleChange}>
                                     <option value="jobSeeker">Job Seeker</option>
-                                    <option value="employer">Employer</option>
+                                    <option value="Employer">Employer</option>
                                 </select>
                             </div>
 
-                            {role === 'jobSeeker' ? jobSeekerFields : employerFields}
+                            {roles === 'jobSeeker' ? jobSeekerFields : employerFields}
 
                             <button className="btn btn-primary btn-block" id="register-btn" type="submit">Register</button>
                         </form>

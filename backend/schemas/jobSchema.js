@@ -1,19 +1,25 @@
 
 const mongoose = require('mongoose');
 
-const Applications = new mongoose.Schema({
-    applicantId: {
-        type: String,
+const applicationsSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     },
     appliedAt: {
         type: Date,
         default: Date.now,
         min: '2024-06-01'
     }
-})
+});
+
+const Applications = mongoose.model('Applications', applicationsSchema);
 
 const JobSchema = new mongoose.Schema({
-
+    employer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     role: {
         type: String,
         default: "Employer",
@@ -37,14 +43,8 @@ const JobSchema = new mongoose.Schema({
         type: String,
     },
     appliedBy: [{
-        applicantId: {
-            type: String,
-        },
-        appliedAt: {
-            type: Date,
-            default: Date.now,
-            min: '2024-06-01'
-        }
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Applications'
     }],
     createdAt: {
         type: Date,

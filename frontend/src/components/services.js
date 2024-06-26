@@ -21,33 +21,6 @@ export const test = async () => {
 // // Retrieving data from localStorage
 // const storedData = JSON.parse(localStorage.getItem('myData'));
 
-
-
-
-
-// export const LLOGIN = async (user) => {
-
-//     const { setAuthData } = useAuth;
-
-//     try {
-//         const res = await axios.post(`${api_URL}/api/Auth`, user);
-//         console.log('Login successful:', res.data);
-//         const entry = (res.data);
-//         console.log(entry.id);
-//         setAuthData({ entry });
-//         return res.data;
-
-//     } catch (error) {
-//         if (error && error.response.status === 401) {
-//             console.error('Unauthorized: Invalid credentials');
-//             // Handle unauthorized error, e.g., show error message to user
-//         } else {
-//             console.error('Error occurred while logging in:', error.message);
-//         }
-//         throw error;
-//     }
-// };
-
 export const LOGIN = async (user) => {
     try {
         const res = await axios.post(`${api_URL}/api/Auth`, user);
@@ -63,5 +36,17 @@ export const LOGIN = async (user) => {
             console.error('Error occurred while logging in:', error.message);
         }
         throw error;
+    }
+};
+
+export const REGISTERFORM = async (user) => {
+    try {
+        const res = await axios.post(`${api_URL}/api/users`, user);
+        // console.log('Response', res);
+        alert("succesfully registerd");
+        //console.log("succes", res.data);
+        return res.data;
+    } catch (error) {
+        console.error("ERROR:", error);
     }
 };

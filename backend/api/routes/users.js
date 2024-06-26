@@ -37,9 +37,12 @@ router.get(`/:id`, (req, res) => {
 
 router.post(`/`, async (req, res) => {
 
-    const { name, email, password, phone, qualification, address, pincode } = req.body;
+    const { role, name, email, password, phone, qualification, address, pincode, companyName, branch } = req.body;
 
     let user = new Users({
+        companyName,
+        branch,
+        role,
         name,
         email,
         password,
@@ -53,7 +56,7 @@ router.post(`/`, async (req, res) => {
         await user
             .save()
             .then(response => {
-                console.log(response.name, " is Registered");
+                console.log(response.email, " is Registered");
                 res.status(200).json({ "Message": "Success", "Doc": response });
             })
             .catch(error => console.log("failed", error));
